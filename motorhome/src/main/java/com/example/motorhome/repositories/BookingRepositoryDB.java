@@ -1,4 +1,4 @@
 package com.example.motorhome.repositories;
 
-public class CostumerRepositoryDB {
+public class BookingRepositoryDB {
 }
