@@ -1,4 +1,14 @@
 package com.example.motorhome.repositories;
 
-public class MotorHomeRepositoryDB {
+import com.example.motorhome.models.MotorHome;
+
+public class MotorHomeRepositoryDB implements IMotorHomeRepository {
+    @Override
+    public void createMotorhome(MotorHome motorhome) {
+        
+    }
+    @Override
+    public MotorHome getMotorhome(MotorHome motorhome) {
+        return null;
+    }
 }
