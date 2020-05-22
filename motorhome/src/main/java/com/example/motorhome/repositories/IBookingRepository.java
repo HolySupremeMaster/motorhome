@@ -9,11 +9,11 @@ public interface IBookingRepository {
 
     public void createBooking (Booking booking);
 
-    public boolean deleteBooking (Booking booking);
+    public boolean deleteBooking (int booking_id);
 
     public boolean updateBooking (Booking booking);
 
-    public Booking getBooking (Booking bookingID);
+    public Booking getBooking (int booking_id);
 
     public List<Booking> getAllBooking();
 

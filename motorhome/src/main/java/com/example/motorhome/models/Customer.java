@@ -5,20 +5,20 @@ public class Customer {
     private String lastName;
     private int driverLicense;
     private String email;
-    private int phoneNumber;
-    private int customerID;
+    private int phonenumber;
+    private int customer_id;
     private int age;
-    private String address;
+    private String address_id;
 
     public Customer(String firstName, String lastName, int driverLicense, String email, int phoneNumber, int customerID, int age, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.driverLicense = driverLicense;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.customerID = customerID;
+        this.phonenumber = phoneNumber;
+        this.customer_id = customerID;
         this.age = age;
-        this.address = address;
+        this.address_id = address;
     }
 
     public Customer() {
@@ -40,21 +40,21 @@ public class Customer {
 
     public void setEmail(String email) { this.email = email; }
 
-    public int getPhoneNumber() { return phoneNumber; }
+    public int getPhonenumber() { return phonenumber; }
 
-    public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setPhonenumber(int phonenumber) { this.phonenumber = phonenumber; }
 
-    public int getCustomerID() { return customerID; }
+    public int getCustomer_id() { return customer_id; }
 
-    public void setCustomerID(int customerID) { this.customerID = customerID; }
+    public void setCustomer_id(int customer_id) { this.customer_id = customer_id; }
 
     public int getAge() { return age; }
 
     public void setAge(int age) { this.age = age; }
 
-    public String getAddress() { return address; }
+    public String getAddress_id() { return address_id; }
 
-    public void setAddress(String address) { this.address = address; }
+    public void setAddress_id(String address_id) { this.address_id = address_id; }
 
     @Override
     public String toString() {
@@ -63,10 +63,10 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", driverLicense=" + driverLicense +
                 ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", customerID=" + customerID +
+                ", phoneNumber=" + phonenumber +
+                ", customerID=" + customer_id +
                 ", age=" + age +
-                ", address='" + address + '\'' +
+                ", address='" + address_id + '\'' +
                 '}';
     }
 }

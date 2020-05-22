@@ -3,9 +3,9 @@ package com.example.motorhome.repositories;
 import com.example.motorhome.models.Booking;
 import com.example.motorhome.util.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.awt.print.Book;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookingRepositoryDB implements IBookingRepository{
@@ -19,7 +19,13 @@ private Connection conn;
     @Override
     public void createBooking(Booking booking) {
     try{
-        PreparedStatement stmnt= conn.prepareStatement("INSERT INTO booking (booking_id, costumer_id, motorhome_id, order_id, paid) values (?,?,?,?,?)");
+        PreparedStatement stmnt= conn.prepareStatement("INSERT INTO booking (booking_id, costumer_id, motorhome_id, order_date, paid) values (?,?,?,?,?)");
+        stmnt.setInt(1,booking.getBooking_id());
+        stmnt.setInt(2,booking.getCustomer_id());
+        stmnt.setInt(3,booking.getMotorhome_id());
+        stmnt.setString(4,booking.getOrder_date());
+        stmnt.setBoolean(5,booking.isPaid());
+        stmnt.executeUpdate();
 
     } catch (SQLException e) {
         e.printStackTrace();
@@ -27,22 +33,82 @@ private Connection conn;
     }
 
     @Override
-    public boolean deleteBooking(Booking booking) {
+    public boolean deleteBooking(int booking_id) {
+        PreparedStatement stmnt =null;
+
+        try {
+        stmnt =conn.prepareStatement("DELETE FROM booking WHERE booking_id=?");
+        stmnt.setInt(1, booking_id);
+        stmnt.executeUpdate();
+        return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
     @Override
     public boolean updateBooking(Booking booking) {
+        try {
+            PreparedStatement stmnt = conn.prepareStatement("UPDATE booking SET booking_id=?, costumer_id=?, motorhome_id=?, order_date=?, paid=? WHERE booking_id = ?");
+
+            stmnt.setInt(1,booking.getBooking_id());
+            stmnt.setInt(2,booking.getCustomer_id());
+            stmnt.setInt(3,booking.getMotorhome_id());
+            stmnt.setString(4,booking.getOrder_date());
+            stmnt.setBoolean(5,booking.isPaid());
+            stmnt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
+        @Override
+        public Booking getBooking (int  booking_id){
+        Booking bookings = new Booking();
+        try {
+        PreparedStatement stmnt =conn.prepareStatement("SELECT * FROM booking where booking_id");
+        stmnt.setInt(1,booking_id);
+            ResultSet rs= stmnt.executeQuery();
 
-    @Override
-    public Booking getBooking(Booking bookingID) {
-        return null;
-    }
+            while(rs.next()){
+                bookings.setBooking_id(rs.getInt(1));
+                bookings.setCustomer_id(rs.getInt(2));
+                bookings.setMotorhome_id(rs.getInt(3));
+                bookings.setOrder_date(rs.getString(4));
+                bookings.setPaid(rs.getBoolean(5));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            return bookings;
+        }
+
 
     @Override
     public List<Booking> getAllBooking() {
-        return null;
+List <Booking> bookingList = new ArrayList<>();
+
+try {
+    Statement statement =conn.createStatement();
+    ResultSet rs =statement.executeQuery("SELECT * FROM booking");
+    Booking bookings = new Booking();
+
+    while(rs.next()){
+        bookings.setBooking_id(rs.getInt(1));
+        bookings.setCustomer_id(rs.getInt(2));
+        bookings.setMotorhome_id(rs.getInt(3));
+        bookings.setOrder_date(rs.getString(4));
+        bookings.setPaid(rs.getBoolean(5));
+        bookingList.add(bookings);
+    }
+
+} catch (Exception e) {
+    e.printStackTrace();
+}
+        return bookingList;
     }
 }
