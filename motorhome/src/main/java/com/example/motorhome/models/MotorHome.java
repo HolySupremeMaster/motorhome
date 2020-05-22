@@ -4,14 +4,14 @@ public class MotorHome {
     private int motorhome_id;
     private String brand;
     private String model;
-    private String price;
+    private double price;
     private String type;
     private int persons;
 
     public MotorHome() {
     }
 
-    public MotorHome(int motorhome_id, String brand, String model, String price, String type, int persons) {
+    public MotorHome(int motorhome_id, String brand, String model, int price, String type, int persons) {
         this.motorhome_id = motorhome_id;
         this.brand = brand;
         this.model = model;
@@ -32,9 +32,9 @@ public class MotorHome {
 
     public void setModel(String model) { this.model = model; }
 
-    public String getPrice() { return price; }
+    public double getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(double price) { this.price = price; }
 
     public String getType() { return type; }
 

@@ -35,11 +35,12 @@ public class CustomerRepositoryDB implements ICostumerRepository {
     }
 
     @Override
-    public boolean deleteCustomer(Customer customer) {
+    public boolean deleteCustomer(Customer customer_id) {
         PreparedStatement stmnt = null;
         try {
-            stmnt = conn.prepareStatement("DELETE from customer where customer=?");
+            stmnt = conn.prepareStatement("DELETE from customer where customer_id=?");
             stmnt.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
