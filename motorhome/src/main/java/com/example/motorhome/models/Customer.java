@@ -3,17 +3,15 @@ package com.example.motorhome.models;
 public class Customer {
     private String firstName;
     private String lastName;
-    private int driverLicense;
     private String email;
     private int phonenumber;
     private int customer_id;
     private int age;
     private String address_id;
 
-    public Customer(String firstName, String lastName, int driverLicense, String email, int phoneNumber, int customerID, int age, String address) {
+    public Customer(String firstName, String lastName, String email, int phoneNumber, int customerID, int age, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.driverLicense = driverLicense;
         this.email = email;
         this.phonenumber = phoneNumber;
         this.customer_id = customerID;
@@ -31,10 +29,6 @@ public class Customer {
     public String getLastName() { return lastName; }
 
     public void setLastName(String lastName) { this.lastName = lastName; }
-
-    public int getDriverLicense() { return driverLicense; }
-
-    public void setDriverLicense(int driverLicense) { this.driverLicense = driverLicense; }
 
     public String getEmail() { return email; }
 
@@ -61,7 +55,6 @@ public class Customer {
         return "Customer{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", driverLicense=" + driverLicense +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phonenumber +
                 ", customerID=" + customer_id +

@@ -2,7 +2,6 @@ package com.example.motorhome.repositories;
 
 import com.example.motorhome.models.Booking;
 import com.example.motorhome.models.MotorHome;
-import sun.security.krb5.internal.crypto.RsaMd5CksumType;
 
 import java.sql.*;
 import java.util.ArrayList;

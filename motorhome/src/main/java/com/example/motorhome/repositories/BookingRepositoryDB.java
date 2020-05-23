@@ -19,16 +19,17 @@ private Connection conn;
     @Override
     public void createBooking(Booking booking) {
     try{
-        PreparedStatement stmnt= conn.prepareStatement("INSERT INTO booking (booking_id, costumer_id, motorhome_id, order_date, paid) values (?,?,?,?,?)");
-        stmnt.setInt(1,booking.getBooking_id());
-        stmnt.setInt(2,booking.getCustomer_id());
-        stmnt.setInt(3,booking.getMotorhome_id());
-        stmnt.setString(4,booking.getOrder_date());
-        stmnt.setBoolean(5,booking.isPaid());
+        PreparedStatement stmnt= conn.prepareStatement("INSERT INTO booking (costumer_id, motorhome_id, order_date, paid) values (?,?,?,?)");
+
+        stmnt.setInt(1,booking.getCustomer_id());
+        stmnt.setInt(2,booking.getMotorhome_id());
+        stmnt.setString(3,booking.getOrder_date());
+        stmnt.setBoolean(4,booking.isPaid());
         stmnt.executeUpdate();
 
     } catch (SQLException e) {
         e.printStackTrace();
+        System.out.println(e.getMessage());
     }
     }
 
@@ -44,6 +45,7 @@ private Connection conn;
 
         } catch (Exception e) {
             e.printStackTrace();
+
         }
         return false;
     }
@@ -69,7 +71,7 @@ private Connection conn;
         public Booking getBooking (int  booking_id){
         Booking bookings = new Booking();
         try {
-        PreparedStatement stmnt =conn.prepareStatement("SELECT * FROM booking where booking_id");
+        PreparedStatement stmnt =conn.prepareStatement("SELECT * FROM booking where booking_id = ?");
         stmnt.setInt(1,booking_id);
             ResultSet rs= stmnt.executeQuery();
 
@@ -95,14 +97,16 @@ List <Booking> bookingList = new ArrayList<>();
 try {
     Statement statement =conn.createStatement();
     ResultSet rs =statement.executeQuery("SELECT * FROM booking");
-    Booking bookings = new Booking();
 
     while(rs.next()){
+        Booking bookings = new Booking();
+
         bookings.setBooking_id(rs.getInt(1));
         bookings.setCustomer_id(rs.getInt(2));
         bookings.setMotorhome_id(rs.getInt(3));
         bookings.setOrder_date(rs.getString(4));
         bookings.setPaid(rs.getBoolean(5));
+
         bookingList.add(bookings);
     }
 
