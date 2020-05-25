@@ -1,5 +1,6 @@
 package com.example.motorhome.repositories;
 
+import com.example.motorhome.models.Address;
 import com.example.motorhome.models.Booking;
 import com.example.motorhome.models.Customer;
 
@@ -8,7 +9,8 @@ import java.util.List;
 
 public interface ICostumerRepository {
 
-    public void createCustomer(Customer customer);
+    public void createCustomer(Customer customer, Address address);
+
 
     public boolean deleteCustomer(Customer customer);
 

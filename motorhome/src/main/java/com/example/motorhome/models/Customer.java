@@ -7,9 +7,9 @@ public class Customer {
     private int phonenumber;
     private int customer_id;
     private int age;
-    private String address_id;
+    private int address_id;
 
-    public Customer(String firstName, String lastName, String email, int phoneNumber, int customerID, int age, String address) {
+    public Customer(String firstName, String lastName, String email, int phoneNumber, int customerID, int age, int address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -46,9 +46,9 @@ public class Customer {
 
     public void setAge(int age) { this.age = age; }
 
-    public String getAddress_id() { return address_id; }
+    public int getAddress_id() { return address_id; }
 
-    public void setAddress_id(String address_id) { this.address_id = address_id; }
+    public void setAddress_id(int address_id) { this.address_id = address_id; }
 
     @Override
     public String toString() {

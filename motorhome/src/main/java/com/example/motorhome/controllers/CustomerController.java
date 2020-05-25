@@ -1,5 +1,6 @@
 package com.example.motorhome.controllers;
 
+import com.example.motorhome.models.Address;
 import com.example.motorhome.models.Customer;
 import com.example.motorhome.repositories.CustomerRepositoryDB;
 import com.example.motorhome.repositories.ICostumerRepository;
@@ -14,15 +15,17 @@ public class CustomerController {
     ICostumerRepository iCostumerRepository = new CustomerRepositoryDB();
 
     @GetMapping("/createcustomer")
-    public String createCustomer(@ModelAttribute Customer customer){
+    public String createCustomer(){
 
-        iCostumerRepository.createCustomer(customer);
+
 
         return "createCustomer";
     }
 
     @PostMapping("/customercreated")
-    public String created(){
+    public String created(@ModelAttribute Customer customer, @ModelAttribute Address address){
+
+        iCostumerRepository.createCustomer(customer, address);
 
         return "redirect:/createbooking";
     }
