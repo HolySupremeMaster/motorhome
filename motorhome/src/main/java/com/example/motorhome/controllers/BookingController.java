@@ -21,6 +21,11 @@ public class BookingController {
 
     }
 
+    @GetMapping("/")
+    public String homePage(){
+        return "homePage";
+    }
+
     @GetMapping("/createbooking")
     public String createBooking(){
         return "createBooking";

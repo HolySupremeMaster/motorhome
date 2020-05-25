@@ -19,15 +19,20 @@ public class CustomerRepositoryDB implements ICostumerRepository {
 
     @Override
     public void createCustomer(Customer customer){
+
+
+
         try {
-            PreparedStatement stmnt = conn.prepareStatement("INSERT INTO customer values (?,?,?,?,?,?,?)");
-            stmnt.setInt(1, customer.getCustomer_id());
-            stmnt.setString(2, customer.getFirstName());
-            stmnt.setString(3, customer.getLastName());
-            stmnt.setInt(4, customer.getAge());
-            stmnt.setString(5, customer.getEmail());
-            stmnt.setInt(6, customer.getPhonenumber());
-            stmnt.setString(7, customer.getAddress_id());
+            PreparedStatement addressStatement = conn.prepareStatement("INSERT INTO customer_address(address, zip, city) values(?, ?, ?) ");
+            addressStatement.setString(1, customer.ad);
+
+            PreparedStatement stmnt = conn.prepareStatement("INSERT INTO customer(firstName, lastName, age, email, phonenumber, address_id) values (?,?,?,?,?,?)");
+            stmnt.setString(1, customer.getFirstName());
+            stmnt.setString(2, customer.getLastName());
+            stmnt.setInt(3, customer.getAge());
+            stmnt.setString(4, customer.getEmail());
+            stmnt.setInt(5, customer.getPhonenumber());
+            stmnt.setString(6, customer.getAddress_id());
             stmnt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
