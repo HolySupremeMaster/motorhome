@@ -19,28 +19,17 @@ public class CustomerRepositoryDB implements ICostumerRepository {
     }
 
     @Override
-    public void createCustomer(Customer customer, Address address){
+    public void createCustomer(Customer customer){
 
 
 
         try {
 
-            // Indsætter addresse i databasen
-            PreparedStatement addressStatement = conn.prepareStatement("INSERT INTO customer_address(address, zip, city) values(?, ?, ?) ");
-            addressStatement.setString(1, address.getAddress());
-            addressStatement.setInt(2, address.getZip());
-            addressStatement.setString(3, address.getCity());
-
-            // henter address_id
-            PreparedStatement getAddress_id = conn.prepareStatement("SELECT * from customer_address where address_id = ?");
-            getAddress_id.setInt(1, address.getAddress_id());
-
-            ResultSet resultSet = getAddress_id.executeQuery();
-
-            while (resultSet.next()){
-                customer.setAddress_id(resultSet.getInt(1));
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM customer_address");
+            while(rs.next()){
+                customer.setAddress_id(rs.getInt(1));
             }
-
 
             PreparedStatement stmnt = conn.prepareStatement("INSERT INTO customer(firstName, lastName, age, email, phonenumber, address_id) values (?,?,?,?,?,?)");
             stmnt.setString(1, customer.getFirstName());

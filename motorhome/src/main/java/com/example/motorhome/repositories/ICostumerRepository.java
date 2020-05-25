@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ICostumerRepository {
 
-    public void createCustomer(Customer customer, Address address);
+    public void createCustomer(Customer customer);
 
 
     public boolean deleteCustomer(Customer customer);
