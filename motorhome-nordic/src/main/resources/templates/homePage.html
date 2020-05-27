@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,6 +8,7 @@
 
 
     <link th:href="@{style.css}" rel="stylesheet"/>
+
 
 
     <!-- Boostrap -->
@@ -76,9 +78,9 @@
 
             <div class="navbar-nav">
 
-        <li class="nav item border rounded-circle mx-2 seach-icon">
-            <i class="fas fa-search p-2"></i>
-        </li>
+                <li class="nav item border rounded-circle mx-2 seach-icon">
+                    <i class="fas fa-search p-2"></i>
+                </li>
 
             </div>
         </nav>
@@ -86,7 +88,6 @@
 </header>
 
 <main>
-
 
     <div class="container-fluid p-0">
         <div class="site-slider">
@@ -151,7 +152,6 @@
         </div>
     </div>
 
-
 </main>
 
 
@@ -168,6 +168,31 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="./js/main.js"></script>
+<script>
+    $('.slider-one')
+        .not('.slick-intialized')
+        .slick({
+            autoplay: true,
+            autoplaySpeed:3000,
+            dots:true,
+            prevArrow: ".site-slider .slider-btn .prev",
+            nextArrow: ".site-slider .slider-btn .next",
+        });
+
+
+    /** 2.slider */
+
+    $('.slider-two')
+        .not('.slick-intialized')
+        .slick({
+            prevArrow: ".site-slider-two .prev",
+            nextArrow: ".site-slider-two .next",
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplaySpeed: 3000
+        });
+
+
+</script>
 </body>
 </html>
