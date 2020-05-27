@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <link th:href="@{style.css}" rel="stylesheet"/>
+    <link th:href="@{table.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="row justify-content-center"><h1>Edit Bookings</h1></div>
+
+<div class="row justify-content-center">
+    <form action="/bookingedited" method="post">
+
+        <div class="form-group">
+            <label for="Order Date">Order Date</label><br/>
+            <input type="text" name="order_date" id="Order Date" th:value="${order_date}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Paid">Paid</label><br/>
+            <input type="text" name="Paid" id="Paid" th:value="${paid}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Customer ID">Customer ID</label><br/>
+            <input type="text" name="customer_id" id="customer ID" th:value="${customer_id}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Motorhome ID">Motorhome ID</label><br/>
+            <input type="text" name="motorhome_id" id="Motorhome ID" th:value="${motorhome_id}" class="form-control" required><br/>
+        </div>
+
+
+        <div class="form-group">
+            <input type="hidden" name="booking" id="booking" th:value="${booking_id}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="submit">Update</button>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="container">
+    <footer>
+        <hr/>
+        <p>© 2020 - HSM</p>
+    </footer>
+</div>
+
+
+</body>
+</html>

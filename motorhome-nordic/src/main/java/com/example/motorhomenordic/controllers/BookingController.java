@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -52,6 +53,64 @@ public class BookingController {
         iBookingRepository.createBooking(booking);
         
         return "redirect:/";
+    }
+
+
+    @GetMapping ("/allbookings")
+    public String allBookings(Model model){
+        model.addAttribute("list",iBookingRepository.getAllBooking());
+        return "allbookings";
+    }
+
+
+    @GetMapping ("/bookingdetails{id}")
+    public String bookingDetails(@PathVariable("id") int booking_id, int customer_id, Model model){
+
+        Customer customer = iCostumerRepository.getCustomer(customer_id);
+        Booking booking = iBookingRepository.getBooking(booking_id);
+
+
+
+        model.addAttribute("order_id,", booking.getBooking_id());
+        model.addAttribute("order_date", booking.getOrder_date());
+        model.addAttribute("paid", booking.isPaid());
+        model.addAttribute("motorhome_id", booking.getMotorhome_id());
+        model.addAttribute("customer_id", booking.getCustomer_id());
+        model.addAttribute("firstName", customer.getFirstName());
+        model.addAttribute("lastName", customer.getLastName());
+
+        return "bookingdetails";
+    }
+    @GetMapping ("/editbooking{id}")
+    public String editbooking(@PathVariable("id") int booking_id, Model model){
+
+
+        Booking booking = iBookingRepository.getBooking(booking_id);
+
+
+        model.addAttribute("order_id,", booking.getBooking_id());
+        model.addAttribute("order_date", booking.getOrder_date());
+        model.addAttribute("paid", booking.isPaid());
+        model.addAttribute("motorhome_id", booking.getMotorhome_id());
+        model.addAttribute("customer_id", booking.getCustomer_id());
+
+        return "editbooking";
+
+
+    }
+
+    @PostMapping("/bookingedited")
+    public String bookingedited(@ModelAttribute Booking booking){
+
+        iBookingRepository.updateBooking(booking);
+
+        return "redirect:/allbookings";
+    }
+
+    @GetMapping ("/deleteBookings{id}")
+    public String deletebooking(@PathVariable("id") int booking_id){
+        iBookingRepository.deleteBooking(booking_id);
+        return"redirect:/allbookings";
     }
 
 }
