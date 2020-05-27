@@ -90,7 +90,7 @@ public class BookingController {
         Booking booking = iBookingRepository.getBooking(booking_id);
 
 
-        model.addAttribute("order_id", booking.getBooking_id());
+        model.addAttribute("booking_id", booking.getBooking_id());
         model.addAttribute("order_date", booking.getOrder_date());
         model.addAttribute("paid", booking.isPaid());
         model.addAttribute("motorhome_id", booking.getMotorhome_id());
