@@ -62,16 +62,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create booking</a>
+                        <a class="nav-link" href="/createcustomer">Create booking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">See bookings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">See customer</a>
+                        <a class="nav-link" href="/allcustomers">See customer</a>
                     </li>
                 </ul>
             </div>
@@ -93,14 +93,14 @@
         <div class="site-slider">
             <div class="slider-one">
                 <div>
-                    <img th:src="@{/img/inside.png}" class="img-fluid" alt="Banner 1">
+                    <img width="100%" th:src="@{/img/lux1.png}" class="img-fluid" alt="Banner 1">
 
                 </div>
                 <div>
-                    <img th:src="@{/img/camp.png}" class="img-fluid" alt="Banner 2">
+                    <img width="100%" th:src="@{/img/inside4.png}" class="img-fluid" alt="Banner 2">
                 </div>
                 <div>
-                    <img th:src="@{/img/lux.png}" class="img-fluid" alt="Banner 3">
+                    <img width="100%" th:src="@{/img/camp2.png}" class="img-fluid" alt="Banner 3">
                 </div>
             </div>
             <div class="slider-btn">
@@ -155,7 +155,12 @@
 </main>
 
 
-<footer></footer>
+<footer>
+    <div class="container-fluid">
+        <hr/>
+        <p>© 2020 - HSM</p>
+    </div>
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

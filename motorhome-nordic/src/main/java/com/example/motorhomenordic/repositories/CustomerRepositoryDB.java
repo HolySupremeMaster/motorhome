@@ -131,4 +131,31 @@ public class CustomerRepositoryDB implements ICostumerRepository {
         return customerList;
     }
 
+
+    @Override
+    public Customer getLastCreatedCustomer() {
+
+        Customer customer = new Customer();
+
+        try {
+            Statement statement = conn.createStatement();
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM customer");
+
+            while (rs.next()){
+                customer.setCustomer_id(rs.getInt(1));
+                customer.setFirstName(rs.getString(2));
+                customer.setLastName(rs.getString(3));
+                customer.setAge(rs.getInt(4));
+                customer.setEmail(rs.getString(5));
+                customer.setPhonenumber(rs.getInt(6));
+                customer.setAddress_id(rs.getInt(7));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customer;
+    }
 }
