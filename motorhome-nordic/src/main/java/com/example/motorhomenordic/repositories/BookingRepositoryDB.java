@@ -17,14 +17,15 @@ private Connection conn;
 
     @Override
     public void createBooking(Booking booking) {
-    try{
-        PreparedStatement stmnt= conn.prepareStatement("INSERT INTO booking (costumer_id, motorhome_id, order_date, paid) values (?,?,?,?)");
 
-        stmnt.setInt(1,booking.getCustomer_id());
-        stmnt.setInt(2,booking.getMotorhome_id());
-        stmnt.setString(3,booking.getOrder_date());
-        stmnt.setBoolean(4,booking.isPaid());
-        stmnt.executeUpdate();
+    try{
+        PreparedStatement prepared = conn.prepareStatement("INSERT INTO booking(customer_id, motorhome_id, order_date, paid) VALUES (?,?,?,?)");
+        prepared.setInt(1, booking.getCustomer_id());
+        prepared.setInt(2, booking.getMotorhome_id());
+        prepared.setString(3, booking.getOrder_date());
+        prepared.setBoolean(4, booking.isPaid());
+
+        prepared.executeUpdate();
 
     } catch (SQLException e) {
         e.printStackTrace();

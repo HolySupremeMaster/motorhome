@@ -2,6 +2,7 @@ package com.example.motorhomenordic.repositories;
 
 import com.example.motorhomenordic.models.MotorHome;
 import com.example.motorhomenordic.models.MotorHome;
+import com.example.motorhomenordic.util.DatabaseConnectionManager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ public class MotorHomeRepositoryDB implements IMotorHomeRepository {
 
     private Connection conn;
 
-    public MotorHomeRepositoryDB(Connection conn) {
-        this.conn = conn;
+    public MotorHomeRepositoryDB() {
+        this.conn = DatabaseConnectionManager.getConnection();
     }
 
     @Override
@@ -57,7 +58,7 @@ public class MotorHomeRepositoryDB implements IMotorHomeRepository {
 
     @Override
     public List<MotorHome> getAllMotorhome() {
-        List <MotorHome> motorHomeList = new ArrayList<>();
+        List<MotorHome> motorHomeList = new ArrayList<>();
 
         try {
                 Statement statement = conn.createStatement();
@@ -71,6 +72,8 @@ public class MotorHomeRepositoryDB implements IMotorHomeRepository {
                     motorhome.setPrice(rs.getDouble(4));
                     motorhome.setType(rs.getString(5));
                     motorhome.setPersons(rs.getInt(6));
+
+                    motorHomeList.add(motorhome);
 
                 }
 

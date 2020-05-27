@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta charset="UTF-8">
@@ -23,13 +23,14 @@
 
     <div class="row justify-content-center">
 
-        <form action="/createbooking" method="post">
+        <form action="/created" method="post">
 
 
             <br/>
 
             <div class="from-group">
-                <input type="number" name="customer_id"  class="form-control" required>
+                <label for="customer">Customer_id</label>
+                <input type="number" name="customer_id" id="customer" class="form-control" required>
             </div>
 
             <div class="from-group">
@@ -37,15 +38,35 @@
                 <input type="number" name="motorhome_id" id="Motorhome" class="form-control" required>
             </div>
 
+            <!--
+           <div class="from-group">
+                <select id="motor" name="motorhome_id" >
+                    <span th:each="motor : ${motorlist}">
+                        <options th:value="${motor.motorhome_id}" th:text="${motor.brand}"></options>
+                    </span>
+                </select>
+            </div>
+
+
+            <tr th:each="motorhome:${motorlist}">
+                <options th:value="${motorhome.motorhome_id}" th:text="${motorhome.brand}"></options>
+            <tr/>
+
+-->
+
+
+
+
+
             <div class="from-group">
                 <label for="Order Date">order Date</label>
-                <input type="date" name="order Date" id="Order Date" class="form-control" required>
+                <input type="date" name="order_date" id="Order Date" class="form-control" required>
             </div>
 
             <div class="from-group">
                 <label for="Paid">Paid</label>
-                <input type="checkbox" name="Paid" id="Paid" class="form-control" required>
-            </div>
+            <input type="number" name="Paid" id="Paid" class="form-control" required>
+    </div>
 
             <br/>
 
