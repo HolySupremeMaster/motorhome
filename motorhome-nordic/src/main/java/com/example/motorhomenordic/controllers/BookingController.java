@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class BookingController {
 
-    IBookingRepository iBookingRepository;
+    IBookingRepository iBookingRepository = new BookingRepositoryDB();
+
 
 
     ICostumerRepository iCostumerRepository = new CustomerRepositoryDB();
@@ -20,8 +21,6 @@ public class BookingController {
 
     @GetMapping("/createcustomer")
     public String createCustomer(){
-
-
 
         return "createCustomer";
     }
