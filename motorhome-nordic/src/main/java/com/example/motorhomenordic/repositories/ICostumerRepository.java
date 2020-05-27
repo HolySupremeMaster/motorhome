@@ -15,6 +15,8 @@ public interface ICostumerRepository {
 
     public Customer getCustomer(int customer_id);
 
+    public Customer getLastCreatedCustomer();
+
     public List<Customer> getAllCustomer();
 
 }

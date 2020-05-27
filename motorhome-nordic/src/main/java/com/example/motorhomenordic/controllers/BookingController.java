@@ -40,9 +40,10 @@ public class BookingController {
     @GetMapping("/createbooking")
     public String createBooking(Model model){
 
-        model.addAttribute("motorlist", iMotorHomeRepository.getAllMotorhome());
+       // model.addAttribute("motorlist", iMotorHomeRepository.getAllMotorhome());
 
-
+        Customer customer = iCostumerRepository.getLastCreatedCustomer();
+        model.addAttribute("customer_id", customer.getCustomer_id());
 
         return "createBooking";
     }
@@ -50,7 +51,7 @@ public class BookingController {
     @PostMapping("/created")
     public String created(@ModelAttribute Booking booking){
         iBookingRepository.createBooking(booking);
-        
+
         return "redirect:/";
     }
 
