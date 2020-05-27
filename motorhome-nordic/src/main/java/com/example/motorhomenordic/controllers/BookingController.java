@@ -65,20 +65,21 @@ public class BookingController {
 
 
     @GetMapping ("/bookingdetails{id}")
-    public String bookingDetails(@PathVariable("id") int booking_id, int customer_id, Model model){
-
-        Customer customer = iCostumerRepository.getCustomer(customer_id);
+    public String bookingDetails(@PathVariable("id") int booking_id, Model model){
         Booking booking = iBookingRepository.getBooking(booking_id);
 
+        Customer customer = iCostumerRepository.getCustomer(booking.getCustomer_id());
 
-
-        model.addAttribute("order_id,", booking.getBooking_id());
+        model.addAttribute("booking_id,", booking.getBooking_id());
         model.addAttribute("order_date", booking.getOrder_date());
         model.addAttribute("paid", booking.isPaid());
         model.addAttribute("motorhome_id", booking.getMotorhome_id());
         model.addAttribute("customer_id", booking.getCustomer_id());
         model.addAttribute("firstName", customer.getFirstName());
         model.addAttribute("lastName", customer.getLastName());
+
+
+
 
         return "bookingdetails";
     }
@@ -89,7 +90,7 @@ public class BookingController {
         Booking booking = iBookingRepository.getBooking(booking_id);
 
 
-        model.addAttribute("order_id,", booking.getBooking_id());
+        model.addAttribute("order_id", booking.getBooking_id());
         model.addAttribute("order_date", booking.getOrder_date());
         model.addAttribute("paid", booking.isPaid());
         model.addAttribute("motorhome_id", booking.getMotorhome_id());
