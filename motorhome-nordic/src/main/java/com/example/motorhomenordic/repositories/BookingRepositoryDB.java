@@ -53,13 +53,13 @@ private Connection conn;
     @Override
     public boolean updateBooking(Booking booking) {
         try {
-            PreparedStatement stmnt = conn.prepareStatement("UPDATE booking SET booking_id=?, costumer_id=?, motorhome_id=?, order_date=?, paid=? WHERE booking_id = ?");
+            PreparedStatement stmnt = conn.prepareStatement("UPDATE booking SET costumer_id=?, motorhome_id=?, order_date=?, paid=? WHERE booking_id = ?");
 
-            stmnt.setInt(1,booking.getBooking_id());
-            stmnt.setInt(2,booking.getCustomer_id());
-            stmnt.setInt(3,booking.getMotorhome_id());
-            stmnt.setString(4,booking.getOrder_date());
-            stmnt.setBoolean(5,booking.isPaid());
+
+            stmnt.setInt(1,booking.getCustomer_id());
+            stmnt.setInt(2,booking.getMotorhome_id());
+            stmnt.setString(3,booking.getOrder_date());
+            stmnt.setBoolean(4,booking.isPaid());
             stmnt.executeUpdate();
             return true;
         } catch (SQLException e) {

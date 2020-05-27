@@ -75,6 +75,8 @@ public class BookingController {
         model.addAttribute("paid", booking.isPaid());
         model.addAttribute("motorhome_id", booking.getMotorhome_id());
         model.addAttribute("customer_id", booking.getCustomer_id());
+
+
         model.addAttribute("firstName", customer.getFirstName());
         model.addAttribute("lastName", customer.getLastName());
 
