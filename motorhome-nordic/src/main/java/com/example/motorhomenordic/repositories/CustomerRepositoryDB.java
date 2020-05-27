@@ -105,7 +105,7 @@ public class CustomerRepositoryDB implements ICostumerRepository {
     @Override
     public List<Customer> getAllCustomer() {
 
-        List <Customer>customerList = new ArrayList<>();
+        List<Customer> customerList = new ArrayList<>();
 
         try {
             Statement statement =conn.createStatement();
@@ -120,6 +120,8 @@ public class CustomerRepositoryDB implements ICostumerRepository {
                 customer.setEmail(rs.getString(5));
                 customer.setPhonenumber(rs.getInt(6));
                 customer.setAddress_id(rs.getInt(7));
+
+                customerList.add(customer);
             }
 
 

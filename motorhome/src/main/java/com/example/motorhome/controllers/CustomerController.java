@@ -7,9 +7,8 @@ import com.example.motorhome.repositories.CustomerRepositoryDB;
 import com.example.motorhome.repositories.IAddressRepository;
 import com.example.motorhome.repositories.ICostumerRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CustomerController {
@@ -18,15 +17,14 @@ public class CustomerController {
     IAddressRepository iAddressRepository = new AddressRepositoryDB();
 
     @GetMapping("/createcustomer")
-    public String createCustomer(){
-
+    public String createCustomer() {
 
 
         return "createCustomer";
     }
 
     @PostMapping("/customercreated")
-    public String created(@ModelAttribute Customer customer, @ModelAttribute Address address ){
+    public String created(@ModelAttribute Customer customer, @ModelAttribute Address address) {
 
         iAddressRepository.createAddress(address);
         iCostumerRepository.createCustomer(customer);
@@ -34,5 +32,19 @@ public class CustomerController {
         return "redirect:/createbooking";
     }
 
+    @GetMapping("/customerDetails{id}")
+    public String customerDetails(@PathVariable("id") int customer_id, Model model) {
 
+        Customer customer = iCostumerRepository.getCustomer(customer_id);
+
+        model.addAttribute("customer_id",customer.getCustomer_id());
+        model.addAttribute("firstName",customer.getFirstName());
+        model.addAttribute("lastName",customer.getLastName());
+        model.addAttribute("email",customer.getEmail());
+        model.addAttribute("phoneNumber",customer.getPhonenumber());
+        model.addAttribute("age", customer.getAge());
+        model.addAttribute("address_id",customer.getAddress_id());
+
+        return "customer/details";
+    }
 }

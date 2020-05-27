@@ -67,6 +67,7 @@ private Connection conn;
         }
         return false;
     }
+
         @Override
         public Booking getBooking (int  booking_id){
         Booking bookings = new Booking();
