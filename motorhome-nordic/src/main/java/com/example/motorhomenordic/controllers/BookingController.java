@@ -1,8 +1,6 @@
 package com.example.motorhomenordic.controllers;
 
-import com.example.motorhomenordic.models.Address;
-import com.example.motorhomenordic.models.Booking;
-import com.example.motorhomenordic.models.Customer;
+import com.example.motorhomenordic.models.*;
 import com.example.motorhomenordic.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +19,8 @@ public class BookingController {
     ICostumerRepository iCostumerRepository = new CustomerRepositoryDB();
     IAddressRepository iAddressRepository = new AddressRepositoryDB();
     IMotorHomeRepository iMotorHomeRepository = new MotorHomeRepositoryDB();
+    IPickupRepository iPickupRepository = new PickupRepositoryDB();
+    IDropoffRepository iDropoffRepository = new DropoffRepositoryDB();
 
     @GetMapping("/createcustomer")
     public String createCustomer(){
@@ -50,8 +50,10 @@ public class BookingController {
     }
 
     @PostMapping("/created")
-    public String created(@ModelAttribute Booking booking){
+    public String created(@ModelAttribute Booking booking, @ModelAttribute Pickup pickup, @ModelAttribute Dropoff dropoff){
         iBookingRepository.createBooking(booking);
+        iPickupRepository.createPickup(pickup);
+        iDropoffRepository.createDropoff(dropoff);
 
         return "redirect:/";
     }

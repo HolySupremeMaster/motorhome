@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DropoffRepositoryDB {
+public class DropoffRepositoryDB implements IDropoffRepository {
 
     private Connection conn;
 

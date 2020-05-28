@@ -8,10 +8,10 @@ public interface IDropoffRepository {
 
     public void createDropoff(Dropoff dropoff);
 
-    public Dropoff getPickup(int booking_id);
+    public Dropoff getDropoff(int booking_id);
 
-    public boolean updatePickup (Dropoff dropoff);
+    public boolean updateDropoff(Dropoff dropoff);
 
-    public boolean deletePickup (int booking_id);
+    public boolean deleteDropoff(int booking_id);
 
 }
