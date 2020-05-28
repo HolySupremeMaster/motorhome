@@ -92,7 +92,7 @@
     <main>
 
         <br/>
-        <h1>List of Bookings</h1>
+        <h1>Booking details</h1>
 
         <table>
             <tr>
@@ -100,11 +100,13 @@
                 <th>Order Date</th>
                 <th>Total price</th>
                 <th>Paid</th>
-                <th>Customer ID</th>
                 <th>Motorhome ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-
+                <th>Customer ID</th>
+                <th>Customer name</th>
+                <th>Pickup date</th>
+                <th>Pickup location</th>
+                <th>Dropoff date</th>
+                <th>Dropoff location</th>
 
             </tr>
             <tr>
@@ -112,10 +114,14 @@
                 <td th:text="${order_date}"></td>
                 <td th:text="${total_price}"></td>
                 <td th:text="${paid}"></td>
-                <td th:text="${customer_id}"></td>
                 <td th:text="${motorhome_id}"></td>
-                <td th:text="${firstName}"></td>
-                <td th:text="${lastName}"></td>
+                <td th:text="${customer_id}"></td>
+                <td th:text="${firstName} + ' ' + ${lastName}"></td>
+                <td th:text="${pickup_date}"></td>
+                <td th:text="${pickup_location}"></td>
+                <td th:text="${dropoff_date}"></td>
+                <td th:text="${dropoff_location}"></td>
+
 
 
 

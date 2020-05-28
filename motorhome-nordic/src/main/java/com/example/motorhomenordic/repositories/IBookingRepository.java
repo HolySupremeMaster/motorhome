@@ -2,6 +2,7 @@ package com.example.motorhomenordic.repositories;
 
 import com.example.motorhomenordic.models.Booking;
 
+import java.security.PublicKey;
 import java.util.List;
 
 public interface IBookingRepository {
@@ -17,7 +18,7 @@ public interface IBookingRepository {
 
     public List<Booking> getAllBooking();
 
-
+    public int getLastBookingID();
 
 
 

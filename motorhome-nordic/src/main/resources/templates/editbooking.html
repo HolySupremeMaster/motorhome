@@ -92,29 +92,55 @@
     <form action="/bookingedited" method="post">
 
         <div class="form-group">
-            <label for="Order Date">Order Date</label><br/>
-            <input type="date" name="order_date" id="Order Date" th:value="${order_date}" class="form-control" required><br/>
+            <label for="Motorhome ID">Motorhome ID</label>
+            <input type="number" name="motorhome_id" id="Motorhome ID" th:value="${motorhome_id}" class="form-control" required><br/>
         </div>
 
         <div class="form-group">
-            <label for="Paid">Paid</label><br/>
+            <input type="hidden" name="order_date" id="Order Date" th:value="${order_date}" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Total price</label>
+            <input type="number" name="total_price" id="price" th:value="${total_price}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Paid">Paid</label>
             <input type="text" name="paid" id="Paid" th:value="${paid}" class="form-control" required><br/>
         </div>
 
         <div class="form-group">
-
-            <input type="hidden" name="customer_id" id="customer ID" th:value="${customer_id}" class="form-control" required><br/>
+            <input type="hidden" name="customer_id" id="customer ID" th:value="${customer_id}" class="form-control" required>
         </div>
 
-        <div class="form-group">
-            <label for="Motorhome ID">Motorhome ID</label><br/>
-            <input type="number" name="motorhome_id" id="Motorhome ID" th:value="${motorhome_id}" class="form-control" required><br/>
-        </div>
 
 
         <div class="form-group">
-            <input type="hidden" name="booking_id" id="booking" th:value="${booking_id}" class="form-control" required><br/>
+            <input type="hidden" name="booking_id" id="booking" th:value="${booking_id}" class="form-control" required>
         </div>
+
+        <div class="form-group">
+            <label for="pickup date">Pickup date</label>
+            <input type="date" name="pickup_date" id="pickup date" th:value="${pickup_date}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupLoc">Pickup location</label>
+            <input type="text" name="pickup_location" id="pickupLoc" th:value="${pickup_location}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="dropoff date">Dropoff date</label>
+            <input type="date" name="dropoff_date" id="dropoff date" th:value="${dropoff_date}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="dropoffLoc">Dropoff location</label>
+            <input type="text" name="dropoff_location" id="dropoffLoc" th:value="${dropoff_location}" class="form-control" required><br/>
+        </div>
+
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary" name="submit">Update</button>

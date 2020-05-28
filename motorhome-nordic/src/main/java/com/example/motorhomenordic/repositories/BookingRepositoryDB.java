@@ -119,4 +119,26 @@ try {
 }
         return bookingList;
     }
+
+
+    @Override
+    public int getLastBookingID() {
+
+        int booking_id = 0;
+
+        try{
+            Statement statement = conn.createStatement();
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM booking");
+
+            while (rs.next()){
+                booking_id =  rs.getInt(1);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return booking_id;
+    }
 }

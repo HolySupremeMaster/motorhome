@@ -19,9 +19,9 @@ public class PickupRepositoryDB implements IPickupRepository {
     @Override
     public void createPickup(Pickup pickup) {
 
-        PreparedStatement prePickup = null;
+
         try {
-            prePickup = conn.prepareStatement("INSERT INTO pickup(booking_id, pickup_date, pickup_location) VALUES (?,?,?)");
+            PreparedStatement prePickup = conn.prepareStatement("INSERT INTO pickup(booking_id, pickup_date, pickup_location) VALUES (?,?,?)");
             prePickup.setInt(1, pickup.getBooking_id());
             prePickup.setString(2, pickup.getPickup_date());
             prePickup.setString(3, pickup.getPickup_location());
