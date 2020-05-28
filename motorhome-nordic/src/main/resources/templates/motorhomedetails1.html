@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Motorhome Nordic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link th:href="@{style.css}" rel="stylesheet"/>
+
+
+
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- font Awesome -->
+    <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link th:href="@{table.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-12">
+                <div class="btn-group">
+                    <button class="btn border dropdown-toggle my-md-4 my-2" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">DKK
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">ERU - Euro</a>
+                        <a href="#" class="dropdown-item">USD - Dollar</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12 text-center">
+                <h2 class="my-md-3 site-title ">Motorhome Nordic</h2>
+            </div>
+            <div class="col-md-4 col-12 text-right">
+                <p class="my-md-4 header-links">
+                    <a href="#" class="px-2">Sign out</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/createcustomer">Create booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allbookings">See bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allcustomers">See customer</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-nav">
+
+                <li class="nav item border rounded-circle mx-2 seach-icon">
+                    <i class="fas fa-search p-2"></i>
+                </li>
+
+            </div>
+        </nav>
+    </div>
+</header>
+<div>
+    <h1 style="text-align:center"> Etegra Morena </h1>
+    <p><img src="/img/etgre1.png" style="float:left;padding-right:12px" height="475" width="880" />Etegra Morena er en af de skarpeste autocampere vi har stående. Den er perfekt til familier der består af 4 til 5 personer. Den indeholder en stue, to værelser og et badeværelse. Mange familier har haft gavn af denne autocamper, og den vil være perfekt til børnefamilier. </p>
+    <b>Specifikationer:</b>
+    <p>Pris pr dag:</p>
+    <p>KM pr dag:</p>
+    <p>4-5 Personer</p>
+    <p>Tilføj</p>
+    <p>Tilføj</p>
+    <p>Tilføj</p>
+    <br style="clear:both" />
+
+    <footer>
+        <div class="container-fluid">
+            <hr/>
+            <p>© 2020 - HSM</p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
