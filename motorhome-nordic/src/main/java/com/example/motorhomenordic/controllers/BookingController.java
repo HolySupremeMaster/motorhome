@@ -41,7 +41,7 @@ public class BookingController {
     @GetMapping("/createbooking")
     public String createBooking(Model model){
 
-       // model.addAttribute("motorlist", iMotorHomeRepository.getAllMotorhome());
+       model.addAttribute("motorlist", iMotorHomeRepository.getAllMotorhome());
 
         Customer customer = iCostumerRepository.getLastCreatedCustomer();
         model.addAttribute("customer_id", customer.getCustomer_id());
@@ -60,6 +60,7 @@ public class BookingController {
     @GetMapping ("/allbookings")
     public String allBookings(Model model){
         model.addAttribute("list",iBookingRepository.getAllBooking());
+        model.addAttribute("motorlist", iMotorHomeRepository.getAllMotorhome());
         return "allbookings";
     }
 
@@ -72,6 +73,7 @@ public class BookingController {
 
         model.addAttribute("booking_id", booking.getBooking_id());
         model.addAttribute("order_date", booking.getOrder_date());
+        model.addAttribute("total_price", booking.getTotal_price());
         model.addAttribute("paid", booking.isPaid());
         model.addAttribute("motorhome_id", booking.getMotorhome_id());
         model.addAttribute("customer_id", booking.getCustomer_id());

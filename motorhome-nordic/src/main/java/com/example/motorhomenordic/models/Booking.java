@@ -7,6 +7,8 @@ public class Booking {
     private boolean paid;
     private int customer_id;
     private int motorhome_id;
+    private double total_price;
+
 
 
     public Booking() { }
@@ -39,6 +41,14 @@ public class Booking {
     public int getMotorhome_id() { return motorhome_id; }
 
     public void setMotorhome_id(int motorhome_id) { this.motorhome_id = motorhome_id; }
+
+    public double getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(double total_price) {
+        this.total_price = total_price;
+    }
 
     @Override
     public String toString() {

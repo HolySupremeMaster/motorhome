@@ -19,11 +19,12 @@ private Connection conn;
     public void createBooking(Booking booking) {
 
     try{
-        PreparedStatement prepared = conn.prepareStatement("INSERT INTO booking(customer_id, motorhome_id, order_date, paid) VALUES (?,?,?,?)");
+        PreparedStatement prepared = conn.prepareStatement("INSERT INTO booking(customer_id, motorhome_id, order_date, total_price ,paid) VALUES (?,?,?,?,?)");
         prepared.setInt(1, booking.getCustomer_id());
         prepared.setInt(2, booking.getMotorhome_id());
         prepared.setString(3, booking.getOrder_date());
-        prepared.setBoolean(4, booking.isPaid());
+        prepared.setDouble(4, booking.getTotal_price());
+        prepared.setBoolean(5, booking.isPaid());
 
         prepared.executeUpdate();
 
@@ -53,12 +54,14 @@ private Connection conn;
     @Override
     public boolean updateBooking(Booking booking) {
         try {
-            PreparedStatement stmnt = conn.prepareStatement("UPDATE booking SET motorhome_id = ?, order_date=?, paid=? WHERE booking_id = ?");
+            PreparedStatement stmnt = conn.prepareStatement("UPDATE booking SET motorhome_id = ?, order_date=?, paid=?, total_price=? WHERE booking_id = ?");
 
             stmnt.setInt(1, booking.getMotorhome_id());
             stmnt.setString(2, booking.getOrder_date());
             stmnt.setBoolean(3, booking.isPaid());
-            stmnt.setInt(4, booking.getBooking_id());
+            stmnt.setDouble(4, booking.getTotal_price());
+            stmnt.setInt(5, booking.getBooking_id());
+
             stmnt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -79,7 +82,8 @@ private Connection conn;
                 bookings.setCustomer_id(rs.getInt(2));
                 bookings.setMotorhome_id(rs.getInt(3));
                 bookings.setOrder_date(rs.getString(4));
-                bookings.setPaid(rs.getBoolean(5));
+                bookings.setTotal_price(rs.getDouble(5));
+                bookings.setPaid(rs.getBoolean(6));
 
             }
         } catch (Exception e) {
@@ -104,7 +108,8 @@ try {
         bookings.setCustomer_id(rs.getInt(2));
         bookings.setMotorhome_id(rs.getInt(3));
         bookings.setOrder_date(rs.getString(4));
-        bookings.setPaid(rs.getBoolean(5));
+        bookings.setTotal_price(rs.getDouble(5));
+        bookings.setPaid(rs.getBoolean(6));
 
         bookingList.add(bookings);
     }

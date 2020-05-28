@@ -110,7 +110,8 @@
                 <td th:text="${booking.order_date}"></td>
                 <td th:text="${booking.paid}"></td>
                 <td th:text="${booking.customer_id}"></td>
-                <td th:text="${booking.motorhome_id}"></td>
+                <!--<td th:text="${booking.motorhome_id}"></td>-->
+                <td th:each="motor : ${motorlist}" th:if="${booking.motorhome_id == motor.motorhome_id}" th:text="${motor.brand} + ' ' + ${motor.type}"></td>
 
                 <td><a th:href="@{'/bookingdetails' + ${booking.booking_id}}" class="btn btn-success">Details</a></td>
                 <td><a th:href="@{'/editbooking' + ${booking.booking_id}}" class="btn btn-info">Edit</a></td>

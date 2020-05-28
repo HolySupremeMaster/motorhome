@@ -104,40 +104,39 @@
                 <input type="number" name="customer_id" id="customer" th:value="${customer_id}" class="form-control" required>
             </div>
 
-            <div class="from-group">
-                <label for="Motorhome">Motorhome</label>
-                <input type="number" name="motorhome_id" id="Motorhome" class="form-control" required>
-            </div>
+            <br/>
 
-            <!--
-           <div class="from-group">
-                <select id="motor" name="motorhome_id" >
-                    <span th:each="motor : ${motorlist}">
-                        <options th:value="${motor.motorhome_id}" th:text="${motor.brand}"></options>
+            <div class="from-group">
+                <label for="Motorhome">Motorhome</label> <br/>
+               <!-- <input type="number" name="motorhome_id" id="Motorhome" class="form-control" required> -->
+                <select name="motorhome_id" id="Motorhome">
+                    <span th:each="motor:${motorlist}">
+                        <option th:value="${motor.motorhome_id}" th:text="${motor.brand} + ' ' +  ${motor.type}"></option>
                     </span>
                 </select>
             </div>
 
-
-            <tr th:each="motorhome:${motorlist}">
-                <options th:value="${motorhome.motorhome_id}" th:text="${motorhome.brand}"></options>
-            <tr/>
-
--->
-
-
-
+            <br/>
 
 
             <div class="from-group">
-                <label for="Order Date">order Date</label>
+                <label for="Order Date">Order date</label>
                 <input type="date" name="order_date" id="Order Date" class="form-control" required>
             </div>
 
+            <br/>
+
             <div class="from-group">
-                <label for="Paid">Paid</label>
-            <input type="number" name="Paid" id="Paid" class="form-control" required>
-    </div>
+                <label for="price">Total price</label>
+                <input type="number" name="total_price" id="price" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="Paid">Paid?</label>
+            <input type="number" name="Paid" id="Paid" class="form-control" placeholder="0 = false or 1 = true" required>
+            </div>
 
             <br/>
 

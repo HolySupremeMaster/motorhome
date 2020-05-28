@@ -54,7 +54,8 @@ header .site-title{
 }
 
 .header-links a:hover{
-    color: green;
+    color: #2b5d4f;
+    text-decoration: none;
 }
 
 .navbar-nav{
@@ -163,12 +164,12 @@ header .site-title{
     padding: 0.8rem 1.9rem;
     border-radius: 4rem;
     border: 1px solid var(--border);
-    background-color: white;
-    color: var(--light-gray);
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .slider-two .slick-track .product:hover span{
-    background-color: var(--primary-color);
+    background-color: #2b5d4f;
 }
 
 
