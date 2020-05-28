@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link th:href="@{table.css}" rel="stylesheet"/>
 
-
 </head>
 <body>
 
@@ -87,43 +86,54 @@
     </div>
 </header>
 
+<div class="row justify-content-center"><h1>Edit Customer</h1></div>
+
+<div class="row justify-content-center">
+    <form action="/customeredited" method="post">
+
+        <div class="form-group">
+            <label for="First Name">First Name</label><br/>
+            <input type="text" name="firstName" id="First Name" th:value="${firstName}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Last Name">Last Name</label><br/>
+            <input type="text" name="lastName" id="Last Name" th:value="${lastName}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+
+        <div class="form-group">
+            <label for="Email">Email</label><br/>
+            <input type="text" name="email" id="Email" th:value="${email}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Phone number">Phone number</label><br/>
+            <input type="number" name="phoneNumber" id="Phone number" th:value="${phoneNumber}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Age">Age</label><br/>
+            <input type="number" name="age" id="Age" th:value="${age}" class="form-control" required><br/>
+        </div>
+</div>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="submit">Update</button>
+        </div>
+    </form>
+
+</div>
+
+
 <div class="container">
-
-    <main>
-
-        <br/>
-        <h1>List of Customers</h1>
-
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>email</th>
-                <th>Phone number</th>
-
-
-            </tr>
-            <tr th:each="customer:${list}">
-
-                <td th:text="${customer.firstName}"></td>
-                <td th:text="${customer.lastName}"></td>
-                <td th:text="${customer.age}"></td>
-                <td th:text="${customer.email}"></td>
-                <td th:text="${customer.phonenumber}"></td>
-
-                <td><a th:href="@{'/customerdetails' + ${customer.customer_id}}" class="btn btn-primary">Details</a></td>
-                <td><a th:href="@{'/editcustomer' + ${customer.customer_id}}" class="btn btn-success">Edit</a></td>
-
-            </tr>
-        </table>
-    </main>
-    <hr/>
     <footer>
+        <hr/>
         <p>© 2020 - HSM</p>
     </footer>
 </div>
-
 
 
 </body>

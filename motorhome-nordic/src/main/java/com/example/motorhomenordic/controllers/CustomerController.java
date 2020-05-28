@@ -6,7 +6,9 @@ import com.example.motorhomenordic.repositories.ICostumerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CustomerController {
@@ -35,6 +37,31 @@ public class CustomerController {
 
             return "customerdetails";
         }
+    @GetMapping("/editcustomer{id}")
+    public String edit(@PathVariable("id") int customer_id, Model model){
+
+        Customer customer = iCostumerRepository.getCustomer(customer_id);
+
+        model.addAttribute("firstName", customer.getFirstName());
+        model.addAttribute("lastName", customer.getLastName());
+        model.addAttribute("email", customer.getEmail());
+        model.addAttribute("phoneNumber", customer.getPhonenumber());
+        model.addAttribute("age", customer.getAge());
+
+
+
+        return "customeredit";
     }
+
+    @PostMapping("/customeredited")
+    public String edited(@ModelAttribute Customer customer){
+
+        iCostumerRepository.updateCustomer(customer);
+
+        return "redirect:/courses";
+    }
+}
+
+
 
 
