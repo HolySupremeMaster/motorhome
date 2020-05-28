@@ -171,6 +171,18 @@ header .site-title{
 .slider-two .slick-track .product:hover span{
     background-color: #2b5d4f;
 }
+.box {
+    display: flex;
+    align-items:center;
+}
+img {
+    float: left;
+}
+
+p {
+    float: left;
+}
+
 
 
 

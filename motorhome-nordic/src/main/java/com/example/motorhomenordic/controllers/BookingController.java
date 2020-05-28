@@ -118,5 +118,7 @@ public class BookingController {
         iBookingRepository.deleteBooking(booking_id);
         return"redirect:/allbookings";
     }
+    @GetMapping("/motorhomedetails1")
+    public String motorhomedetails1(){return "motorhomedetails1";}
 
 }
