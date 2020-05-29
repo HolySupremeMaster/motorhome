@@ -91,6 +91,7 @@ public class PickupRepositoryDB implements IPickupRepository {
             prepared = conn.prepareStatement("DELETE FROM pickup WHERE Booking_id = ?");
             prepared.setInt(1, booking_id);
 
+            prepared.executeUpdate();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

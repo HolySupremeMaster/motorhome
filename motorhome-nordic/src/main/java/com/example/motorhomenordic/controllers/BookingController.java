@@ -146,7 +146,15 @@ public class BookingController {
 
     @GetMapping ("/deleteBookings{id}")
     public String deletebooking(@PathVariable("id") int booking_id){
+
+        iPickupRepository.deletePickup(booking_id);
+        iDropoffRepository.deleteDropoff(booking_id);
+
         iBookingRepository.deleteBooking(booking_id);
+
+        System.out.println(booking_id);
+
+
         return"redirect:/allbookings";
     }
     @GetMapping("/motorhomedetails1")

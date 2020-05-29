@@ -93,6 +93,8 @@ public class DropoffRepositoryDB implements IDropoffRepository {
             prepared = conn.prepareStatement("DELETE FROM dropoff WHERE Booking_id = ?");
             prepared.setInt(1, booking_id);
 
+            prepared.executeUpdate();
+
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
