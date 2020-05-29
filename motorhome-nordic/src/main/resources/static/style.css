@@ -37,7 +37,6 @@ header{
 }
 
 header .site-title{
-    font-family: sans-serif;
     font-weight: bold;
     color: white;
 }
@@ -161,7 +160,7 @@ header .site-title{
 
 
 .site-btn.btn-span{
-    padding: 0.8rem 1.9rem;
+    padding: 6% 10%;
     border-radius: 4rem;
     border: 1px solid var(--border);
     background-color: var(--primary-color);
