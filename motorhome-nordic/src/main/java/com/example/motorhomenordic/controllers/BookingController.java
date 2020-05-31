@@ -157,7 +157,6 @@ public class BookingController {
 
         return"redirect:/allbookings";
     }
-    @GetMapping("/motorhomedetails1")
-    public String motorhomedetails1(){return "motorhomedetails1";}
+
 
 }
