@@ -22,20 +22,7 @@ public class BookingController {
     IPickupRepository iPickupRepository = new PickupRepositoryDB();
     IDropoffRepository iDropoffRepository = new DropoffRepositoryDB();
 
-    @GetMapping("/createcustomer")
-    public String createCustomer(){
 
-        return "createCustomer";
-    }
-
-    @PostMapping("/customercreated")
-    public String created(@ModelAttribute Customer customer, @ModelAttribute Address address ){
-
-        iAddressRepository.createAddress(address);
-        iCostumerRepository.createCustomer(customer);
-
-        return "redirect:/createbooking";
-    }
 
 
     @GetMapping("/createbooking")
@@ -46,7 +33,7 @@ public class BookingController {
         Customer customer = iCostumerRepository.getLastCreatedCustomer();
         model.addAttribute("customer_id", customer.getCustomer_id());
 
-        return "createBooking";
+        return "booking/createBooking";
     }
 
     @PostMapping("/created")
@@ -68,7 +55,7 @@ public class BookingController {
     public String allBookings(Model model){
         model.addAttribute("list",iBookingRepository.getAllBooking());
         model.addAttribute("motorlist", iMotorHomeRepository.getAllMotorhome());
-        return "allbookings";
+        return "booking/allbookings";
     }
 
 
@@ -100,7 +87,7 @@ public class BookingController {
 
 
 
-        return "bookingdetails";
+        return "booking/bookingdetails";
     }
     @GetMapping ("/editbooking{id}")
     public String editbooking(@PathVariable("id") int booking_id, Model model){
@@ -125,7 +112,7 @@ public class BookingController {
         model.addAttribute("dropoff_date", dropoff.getDropoff_date());
         model.addAttribute("dropoff_location", dropoff.getDropoff_location());
 
-        return "editbooking";
+        return "booking/editbooking";
 
 
     }

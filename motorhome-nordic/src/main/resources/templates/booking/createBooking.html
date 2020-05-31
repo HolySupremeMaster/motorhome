@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Motorhome Nordic</title>
+    <title>Create Booking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -18,7 +18,6 @@
     <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link th:href="@{table.css}" rel="stylesheet"/>
 
 
 </head>
@@ -83,54 +82,108 @@
     </div>
 </header>
 
-<div class="container">
+<main>
 
-    <main>
+    <div class="row justify-content-center">
+        <h1>Create Booking</h1>
+    </div>
 
-        <br/>
-        <h1>Booking details</h1>
+    <div class="row justify-content-center">
 
-        <table>
-            <tr>
-                <th>Booking ID</th>
-                <th>Order Date</th>
-                <th>Total price</th>
-                <th>Paid</th>
-                <th>Motorhome ID</th>
-                <th>Customer ID</th>
-                <th>Customer name</th>
-                <th>Pickup date</th>
-                <th>Pickup location</th>
-                <th>Dropoff date</th>
-                <th>Dropoff location</th>
-
-            </tr>
-            <tr>
-                <td th:text="${booking_id}"></td>
-                <td th:text="${order_date}"></td>
-                <td th:text="${total_price}"></td>
-                <td th:text="${paid}"></td>
-                <td th:text="${motorhome_id}"></td>
-                <td th:text="${customer_id}"></td>
-                <td th:text="${firstName} + ' ' + ${lastName}"></td>
-                <td th:text="${pickup_date}"></td>
-                <td th:text="${pickup_location}"></td>
-                <td th:text="${dropoff_date}"></td>
-                <td th:text="${dropoff_location}"></td>
+        <form action="/created" method="post">
 
 
+            <br/>
+
+            <div class="from-group">
+                <label for="customer">Customer_id</label>
+                <input type="number" name="customer_id" id="customer" th:value="${customer_id}" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="Motorhome">Motorhome</label> <br/>
+               <!-- <input type="number" name="motorhome_id" id="Motorhome" class="form-control" required> -->
+                <select name="motorhome_id" id="Motorhome">
+                    <span th:each="motor:${motorlist}">
+                        <option th:value="${motor.motorhome_id}" th:text="${motor.brand} + ' ' +  ${motor.type}"></option>
+                    </span>
+                </select>
+            </div>
+
+            <br/>
+
+
+            <div class="from-group">
+                <label for="Order Date">Order date</label>
+                <input type="date" name="order_date" id="Order Date" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="Pickup">Pickup date</label>
+                <input type="date" name="pickup_date" id="Pickup" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="PickupLoc">Pickup location</label>
+                <input type="text" name="pickup_location" id="PickupLoc" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="Dropoff">Dropoff location</label>
+                <input type="date" name="dropoff_date" id="Dropoff" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="DropoffLoc">Dropoff location</label>
+                <input type="text" name="dropoff_location" id="DropoffLoc" class="form-control" required>
+            </div>
+
+
+            <br/>
+
+            <div class="from-group">
+                <label for="price">Total price</label>
+                <input type="number" name="total_price" id="price" class="form-control" required>
+            </div>
+
+            <br/>
+
+            <div class="from-group">
+                <label for="Paid">Paid?</label>
+            <input type="number" name="Paid" id="Paid" class="form-control" placeholder="0 = false or 1 = true" required>
+            </div>
+
+            <br/>
+
+            <div>
+                <button type="submit" name="submit" class="btn btn-primary">Create</button>
+            </div>
+
+
+        </form>
 
 
 
-            </tr>
-        </table>
-    </main>
-    <hr/>
-    <footer>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <hr/>
         <p>© 2020 - HSM</p>
-    </footer>
-</div>
-
+    </div>
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

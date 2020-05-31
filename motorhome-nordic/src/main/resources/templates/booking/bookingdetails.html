@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Motorhome Nordic</title>
+    <title>Booking Details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -88,30 +88,38 @@
     <main>
 
         <br/>
-        <h1>List of Bookings</h1>
+        <h1>Booking details</h1>
 
         <table>
             <tr>
                 <th>Booking ID</th>
                 <th>Order Date</th>
+                <th>Total price</th>
                 <th>Paid</th>
-                <th>Customer ID</th>
                 <th>Motorhome ID</th>
-
+                <th>Customer ID</th>
+                <th>Customer name</th>
+                <th>Pickup date</th>
+                <th>Pickup location</th>
+                <th>Dropoff date</th>
+                <th>Dropoff location</th>
 
             </tr>
-            <tr th:each="booking:${list}">
+            <tr>
+                <td th:text="${booking_id}"></td>
+                <td th:text="${order_date}"></td>
+                <td th:text="${total_price}"></td>
+                <td th:text="${paid}"></td>
+                <td th:text="${motorhome_id}"></td>
+                <td th:text="${customer_id}"></td>
+                <td th:text="${firstName} + ' ' + ${lastName}"></td>
+                <td th:text="${pickup_date}"></td>
+                <td th:text="${pickup_location}"></td>
+                <td th:text="${dropoff_date}"></td>
+                <td th:text="${dropoff_location}"></td>
 
-                <td th:text="${booking.booking_id}"></td>
-                <td th:text="${booking.order_date}"></td>
-                <td th:text="${booking.paid}"></td>
-                <td th:text="${booking.customer_id}"></td>
-                <!--<td th:text="${booking.motorhome_id}"></td>-->
-                <td th:each="motor : ${motorlist}" th:if="${booking.motorhome_id == motor.motorhome_id}" th:text="${motor.brand} + ' ' + ${motor.type}"></td>
 
-                <td><a th:href="@{'/bookingdetails' + ${booking.booking_id}}" class="btn btn-success">Details</a></td>
-                <td><a th:href="@{'/editbooking' + ${booking.booking_id}}" class="btn btn-info">Edit</a></td>
-                <td><a href="${pageContext.request.contextPath }" th:href=" @{'/deleteBookings' + ${booking.booking_id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this course?')">Delete</a></td>
+
 
 
             </tr>

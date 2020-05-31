@@ -2,29 +2,27 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Motorhome Nordic</title>
+    <title>Edit Customer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <link th:href="@{style.css}" rel="stylesheet"/>
-    <link th:href="@{table.css}" rel="stylesheet"/>
-    <link th:href="@{detailpages.css}" rel="stylesheet"/>
+
 
 
     <!-- Boostrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- font Awesome -->
     <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
-
-
-
+    <link th:href="@{table.css}" rel="stylesheet"/>
 
 </head>
 <body>
+
 <header>
 
     <div class="container">
@@ -46,14 +44,14 @@
                 <h2 class="my-md-3 site-title ">Motorhome Nordic</h2>
             </div>
 
+
         </div>
     </div>
 
 
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -84,72 +82,54 @@
     </div>
 </header>
 
-<main>
+<div class="row justify-content-center"><h1>Edit Customer</h1></div>
 
-    <br/>
+<div class="row justify-content-center">
+    <form action="/customeredited" method="post">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" th:src="@{/img/etgre1.png}" alt="motorhome1">
-                </div>
-                </div>
-
-            </div>
-            <div class="col-md-7">
-            <p class="newarrival text-center">NEW</p>
-                <h2>Etegra Morena</h2>
-                <img th:src="@{/img/stars.png}"  class="stars" alt="stars">
-                <p>Etegra Morena er en af de skarpeste autocampere vi har stående. Den er perfekt til familier der består af 4 til 5 personer. Den indeholder en stue, to værelser og et badeværelse. Mange familier har haft gavn af denne autocamper, og den vil være perfekt til børnefamilier. </p>
-                <p><b>Pris pr dag:</b> 4500 DKK</p>
-                <p><b>KM pr dag:</b> 400 KM</p>
-                <p><b>Type:</b> C</p>
-                <p><b>Persons:</b> 4-5</p>
-
-            </div>
-        </div>
-    </div>
-
-
-    <!--
-
-    <div class="container">
-        <div>
-            <h1 style="text-align:center"> Etegra Morena </h1>
-            <img src="/img/etgre1.png" width="100%" />
-            <p>Etegra Morena er en af de skarpeste autocampere vi har stående. Den er perfekt til familier der består af 4 til 5 personer. Den indeholder en stue, to værelser og et badeværelse. Mange familier har haft gavn af denne autocamper, og den vil være perfekt til børnefamilier. </p>
-
-        </div>
-        <div>
-
-            <p><b>Specifikationer:</b></p>
-            <p>Pris pr dag:</p>
-            <p>KM pr dag:</p>
-            <p>4-5 Personer</p>
-            <p>Tilføj</p>
-            <p>Tilføj</p>
-            <p>Tilføj</p>
-            <br style="clear:both" />
-
+        <div class="form-group">
+            <label for="First Name">First Name</label><br/>
+            <input type="text" name="firstName" id="First Name" th:value="${firstName}" class="form-control" required><br/>
         </div>
 
+        <div class="form-group">
+            <label for="Last Name">Last Name</label><br/>
+            <input type="text" name="lastName" id="Last Name" th:value="${lastName}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+
+        <div class="form-group">
+            <label for="Email">Email</label><br/>
+            <input type="text" name="email" id="Email" th:value="${email}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Phone number">Phone number</label><br/>
+            <input type="number" name="phoneNumber" id="Phone number" th:value="${phoneNumber}" class="form-control" required><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="Age">Age</label><br/>
+            <input type="number" name="age" id="Age" th:value="${age}" class="form-control" required><br/>
+        </div>
+</div>
 
 
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="submit">Update</button>
+        </div>
+    </form>
 
-    </div>
+</div>
 
--->
 
-</main>
-
-<footer>
-    <div class="container">
+<div class="container">
+    <footer>
         <hr/>
         <p>© 2020 - HSM</p>
-    </div>
-</footer>
+    </footer>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -2,27 +2,32 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Motorhome Nordic</title>
+    <title>Tiffin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <link th:href="@{style.css}" rel="stylesheet"/>
+    <link th:href="@{table.css}" rel="stylesheet"/>
+    <link th:href="@{motorhomeDetails.css}" rel="stylesheet"/>
 
 
 
     <!-- Boostrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <!-- font Awesome -->
     <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link th:href="@{table.css}" rel="stylesheet"/>
+
+    <style>
+
+    </style>
+
+
 
 </head>
 <body>
-
 <header>
 
     <div class="container">
@@ -44,14 +49,14 @@
                 <h2 class="my-md-3 site-title ">Motorhome Nordic</h2>
             </div>
 
-
         </div>
     </div>
 
 
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -82,54 +87,45 @@
     </div>
 </header>
 
-<div class="row justify-content-center"><h1>Edit Customer</h1></div>
+<main>
 
-<div class="row justify-content-center">
-    <form action="/customeredited" method="post">
+    <br/>
 
-        <div class="form-group">
-            <label for="First Name">First Name</label><br/>
-            <input type="text" name="firstName" id="First Name" th:value="${firstName}" class="form-control" required><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" th:src="@{/img/camp1.png}" alt="motorhome1">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-7">
+                <p class="newarrival text-center">NEW</p>
+                <h2>Tiffin Motorhome</h2>
+                <img th:src="@{/img/stars.png}"  class="stars" alt="stars">
+                <p class="price"> 6499 DKK pr. dag</p>
+                <p>Tiffin Motorhome er en af de skarpeste autocampere vi har stående. Den er perfekt til familier der består af 2 til 6 personer. Den indeholder en stue, to værelser og et badeværelse. Mange familier har haft gavn af denne autocamper, og den vil være perfekt til børnefamilier. </p>
+                <p><b>KM pr dag:</b> 400 KM</p>
+                <p><b>Model:</b> 2011</p>
+                <p><b>Type:</b> A</p>
+                <p><b>Persons:</b> 2-6</p>
+                <a href="/createcustomer" class="btn btn-danger">Book</a>
+
+            </div>
         </div>
-
-        <div class="form-group">
-            <label for="Last Name">Last Name</label><br/>
-            <input type="text" name="lastName" id="Last Name" th:value="${lastName}" class="form-control" required><br/>
-        </div>
-
-        <div class="form-group">
-
-        <div class="form-group">
-            <label for="Email">Email</label><br/>
-            <input type="text" name="email" id="Email" th:value="${email}" class="form-control" required><br/>
-        </div>
-
-        <div class="form-group">
-            <label for="Phone number">Phone number</label><br/>
-            <input type="number" name="phoneNumber" id="Phone number" th:value="${phoneNumber}" class="form-control" required><br/>
-        </div>
-
-        <div class="form-group">
-            <label for="Age">Age</label><br/>
-            <input type="number" name="age" id="Age" th:value="${age}" class="form-control" required><br/>
-        </div>
-</div>
+    </div>
 
 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" name="submit">Update</button>
-        </div>
-    </form>
+</main>
 
-</div>
-
-
-<div class="container">
-    <footer>
+<footer>
+    <div class="container">
         <hr/>
         <p>© 2020 - HSM</p>
-    </footer>
-</div>
+    </div>
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
