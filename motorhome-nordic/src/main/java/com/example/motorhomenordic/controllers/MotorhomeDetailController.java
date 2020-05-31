@@ -36,4 +36,14 @@ public class MotorhomeDetailController {
         return "motorhomePages/motorhomedetails6";
     }
 
+    @GetMapping("/motorhomedetails7")
+    public String motorhomedetails7(){
+        return "motorhomePages/motorhomedetails7";
+    }
+
+    @GetMapping("/motorhomedetails8")
+    public String motorhomedetails8(){
+        return "motorhomePages/motorhomedetails8";
+    }
+
 }
