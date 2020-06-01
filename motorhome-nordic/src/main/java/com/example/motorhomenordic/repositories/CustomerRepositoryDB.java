@@ -44,10 +44,12 @@ public class CustomerRepositoryDB implements ICostumerRepository {
     }
 
     @Override
-    public boolean deleteCustomer(Customer customer_id) {
+    public boolean deleteCustomer(int customer_id) {
         PreparedStatement stmnt = null;
+
         try {
             stmnt = conn.prepareStatement("DELETE from customer where customer_id=?");
+            stmnt.setInt(1,customer_id);
             stmnt.executeUpdate();
 
         } catch (SQLException e) {
@@ -61,13 +63,14 @@ public class CustomerRepositoryDB implements ICostumerRepository {
     @Override
     public boolean updateCustomer(Customer customer) {
         try {
-            PreparedStatement stmnt = conn.prepareStatement("UPDATE customer set firstname=?, lastname=?, age=?, email=?, phonenumber=?");
+            PreparedStatement stmnt = conn.prepareStatement("UPDATE customer set firstname=?, lastname=?, age=?, email=?, phonenumber=? where customer_id=?");
 
             stmnt.setString(1, customer.getFirstName());
             stmnt.setString(2, customer.getLastName());
             stmnt.setInt(3, customer.getAge());
             stmnt.setString(4, customer.getEmail());
             stmnt.setInt(5, customer.getPhonenumber());
+            stmnt.setInt(6,customer.getCustomer_id());
             stmnt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
