@@ -66,11 +66,11 @@ public class CustomerController {
     public String edit(@PathVariable("id") int customer_id, Model model){
 
         Customer customer = iCostumerRepository.getCustomer(customer_id);
-
+        model.addAttribute("customer_id",customer.getCustomer_id());
         model.addAttribute("firstName", customer.getFirstName());
         model.addAttribute("lastName", customer.getLastName());
         model.addAttribute("email", customer.getEmail());
-        model.addAttribute("phoneNumber", customer.getPhonenumber());
+        model.addAttribute("phonenumber", customer.getPhonenumber());
         model.addAttribute("age", customer.getAge());
 
 
@@ -83,7 +83,14 @@ public class CustomerController {
 
         iCostumerRepository.updateCustomer(customer);
 
-        return "redirect:/courses";
+        return "redirect:/allcustomers";
+    }
+    @GetMapping ("/deletecustomer{id}")
+    public String deleteCustomer(@PathVariable ("id") int customer_id){
+
+        iCostumerRepository.deleteCustomer(customer_id);
+
+        return "redirect:/allcustomers";
     }
 }
 

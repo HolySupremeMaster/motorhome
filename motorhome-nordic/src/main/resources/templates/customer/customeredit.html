@@ -88,6 +88,9 @@
     <form action="/customeredited" method="post">
 
         <div class="form-group">
+            <input type="hidden" name="customer_id"  th:value="${customer_id}" class="form-control" required><br/>
+        </div>
+        <div class="form-group">
             <label for="First Name">First Name</label><br/>
             <input type="text" name="firstName" id="First Name" th:value="${firstName}" class="form-control" required><br/>
         </div>
@@ -106,7 +109,7 @@
 
         <div class="form-group">
             <label for="Phone number">Phone number</label><br/>
-            <input type="number" name="phoneNumber" id="Phone number" th:value="${phoneNumber}" class="form-control" required><br/>
+            <input type="number" name="phonenumber" id="Phone number" th:value="${phonenumber}" class="form-control" required><br/>
         </div>
 
         <div class="form-group">
