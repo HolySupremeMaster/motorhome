@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MotorhomeNordicApplicationTests {
 
 	BookingRepositoryDB bookingRepositoryDB;
-CustomerRepositoryDB customerRepositoryDB;
+	CustomerRepositoryDB customerRepositoryDB;
 
 	@Test
 	public void getLastBookingTest(){
