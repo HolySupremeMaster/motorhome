@@ -12,18 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class BookingController {
 
-    IBookingRepository iBookingRepository = new BookingRepositoryDB();
+    IBookingRepository iBookingRepository;
+    ICostumerRepository iCostumerRepository;
+    IAddressRepository iAddressRepository;
+    IMotorHomeRepository iMotorHomeRepository;
+    IPickupRepository iPickupRepository;
+    IDropoffRepository iDropoffRepository;
 
+    public BookingController() {
 
-
-    ICostumerRepository iCostumerRepository = new CustomerRepositoryDB();
-    IAddressRepository iAddressRepository = new AddressRepositoryDB();
-    IMotorHomeRepository iMotorHomeRepository = new MotorHomeRepositoryDB();
-    IPickupRepository iPickupRepository = new PickupRepositoryDB();
-    IDropoffRepository iDropoffRepository = new DropoffRepositoryDB();
-
-
-
+        iBookingRepository = new BookingRepositoryDB();
+        iCostumerRepository = new CustomerRepositoryDB();
+        iAddressRepository = new AddressRepositoryDB();
+        iMotorHomeRepository = new MotorHomeRepositoryDB();
+        iPickupRepository = new PickupRepositoryDB();
+        iDropoffRepository = new DropoffRepositoryDB();
+    }
 
     @GetMapping("/createbooking")
     public String createBooking(Model model){

@@ -113,7 +113,7 @@ header .site-title{
     list-style-type: none;
     position: absolute;
     bottom: 0;
-    right: 50%;
+    right: 46%;
 }
 
 .slick-dots li{
@@ -162,7 +162,7 @@ header .site-title{
 .site-btn.btn-span{
     padding: 6% 10%;
     border-radius: 4rem;
-    border: 1px solid var(--border);
+    border: var(--border);
     background-color: var(--primary-color);
     color: white;
 }

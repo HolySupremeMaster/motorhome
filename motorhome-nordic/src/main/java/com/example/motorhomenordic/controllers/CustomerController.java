@@ -16,8 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class CustomerController {
 
-    ICostumerRepository iCostumerRepository = new CustomerRepositoryDB();
-    IAddressRepository iAddressRepository = new AddressRepositoryDB();
+    ICostumerRepository iCostumerRepository;
+    IAddressRepository iAddressRepository;
+
+    public CustomerController() {
+
+        iCostumerRepository = new CustomerRepositoryDB();
+        iAddressRepository = new AddressRepositoryDB();
+    }
 
     @GetMapping("/createcustomer")
     public String createCustomer(){
