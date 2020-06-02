@@ -51,7 +51,7 @@ public class BookingController {
 
 
 
-        return "redirect:/";
+        return "redirect:/homepage";
     }
 
 
